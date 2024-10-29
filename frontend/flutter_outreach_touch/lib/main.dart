@@ -1,6 +1,12 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'turkey.dart' as turkeyPage;
+import 'lesotho.dart' as lesothoPage;
+import 'london.dart' as londonPage;
+import 'phillipi.dart' as phillipiPage;
+import 'uganda.dart' as ugandaPage;
+import 'local_outreach.dart' as localPage;
 //import 'package:google_fonts/google_fonts.dart';
 
 /// Main function that runs the app.
@@ -156,8 +162,7 @@ class GeneratorPage extends StatelessWidget {
 class OutreachMaterial extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Text('Outreach Material'),
+    return Scaffold(
     );
   }
 }
@@ -181,6 +186,7 @@ class MissionsPage extends StatelessWidget {
               imagePath: 'assets/images/turkey_image.jpg',
               title: "Turkey",
               textColor: Color.fromARGB(255, 255, 137, 27),
+              context: context,
             ),
             _buildMissionCard(
               id: 2,
@@ -188,6 +194,7 @@ class MissionsPage extends StatelessWidget {
               imagePath: 'assets/images/london_image.jpg',
               title: "London",
               textColor: Color.fromARGB(255, 207, 223, 238),
+              context: context,
             ),
             _buildMissionCard(
               id: 3,
@@ -195,6 +202,7 @@ class MissionsPage extends StatelessWidget {
               imagePath: 'assets/images/uganda_image.jpg',
               title: "Uganda",
               textColor: Color.fromARGB(255, 196, 11, 11),
+              context: context,
             ),
             _buildMissionCard(
               id: 4,
@@ -202,6 +210,7 @@ class MissionsPage extends StatelessWidget {
               imagePath: 'assets/images/lesotho_image.jpg',
               title: "Lesotho",
               textColor: Color.fromARGB(255, 38, 133, 25),
+              context: context,
             ),
             _buildMissionCard(
               id: 5,
@@ -209,6 +218,7 @@ class MissionsPage extends StatelessWidget {
               imagePath: 'assets/images/local_image.jpg',
               title: "Local Outreach",
               textColor: Color.fromARGB(255, 131, 98, 55),
+              context: context,
             ),
             _buildMissionCard(
               id: 6,
@@ -216,6 +226,7 @@ class MissionsPage extends StatelessWidget {
               imagePath: 'assets/images/phillipi_image.jpeg',
               title: "Phillipi",
               textColor: Color.fromARGB(255, 75, 33, 104),
+              context: context,
             ),
           ],
         ),
@@ -229,6 +240,7 @@ class MissionsPage extends StatelessWidget {
     required String imagePath,
     required String title,
     required Color textColor,
+    required BuildContext context,
   }) {
     return Material(
       color: color,
@@ -240,23 +252,35 @@ class MissionsPage extends StatelessWidget {
         onTap: () {
           switch(id) {
             case 1:
-              print("Turkey");
-              break;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => turkeyPage.TurkeyPage()),
+              );
             case 2:
-              print("London");
-              break;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => londonPage.LondonPage()),
+              );
             case 3:
-              print("Uganda");
-              break;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ugandaPage.UgandaPage()),
+              );
             case 4:
-              print("Lesotho");
-              break;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => lesothoPage.LesothoPage()),
+              );
             case 5:
-              print("Local Outreach");
-              break;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => localPage.LocalPage()),
+              );
             case 6:
-              print("Phillipi");
-              break;
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => phillipiPage.PhillipiPage()),
+              );
           }
         },
         child: Column(
